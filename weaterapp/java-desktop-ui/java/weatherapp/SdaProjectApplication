@@ -1,0 +1,19 @@
+package sda.sda_project;
+
+import javax.swing.*;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SdaProjectApplication {
+
+	 public static void main(String [] args){
+        SwingUtilities.invokeLater(new Runnable(){
+            @Override
+            public void run(){
+                new weatherAppGui().setVisible(true);
+            }
+        });
+    }
+}
