@@ -1,40 +1,78 @@
 package sda.sda_project;
-
 import javax.swing.*;
-
+import java.awt.event.*;
+import java.net.URL;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.awt.*;
+ 
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
 public class SdaProjectApplication {
-
-	 public static void main(String [] args){
-       JFrame screenOfProject=new JFrame();
-       screenOfProject.setDefaultCloseOperation(screenOfProject.EXIT_ON_CLOSE);
-       screenOfProject.setSize(1200,800);
-       screenOfProject.setVisible(true);
-       screenOfProject.setLocationRelativeTo(null);
-       screenOfProject.setLayout(new BorderLayout());
-
-       JPanel border1=new JPanel();
-       JPanel border2=new JPanel();
-       JPanel border3=new JPanel();
-       JPanel border4=new JPanel();
-       border1.setBackground(Color.black);
-       border2.setBackground(Color.black);
-       border3.setBackground(Color.black);
-       border4.setBackground(Color.black);
-       border1.setPreferredSize(new Dimension(10,10));
-       border2.setPreferredSize(new Dimension(10,10));
-       border3.setPreferredSize(new Dimension(10,10));
-       border4.setPreferredSize(new Dimension(10,10));
-       screenOfProject.add(border1,BorderLayout.NORTH);
-       screenOfProject.add(border2,BorderLayout.EAST);
-       screenOfProject.add(border3,BorderLayout.SOUTH);
-       screenOfProject.add(border4,BorderLayout.WEST);
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+    }
+    
+    public static void createAndShowGUI() {
+        JFrame screenOfProject = new JFrame();
+        screenOfProject.setTitle("Weather App");
+        screenOfProject.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        screenOfProject.setSize(3000, 800);
+        screenOfProject.setVisible(true);
+        screenOfProject.setLocationRelativeTo(null);
+        screenOfProject.setLayout(new BorderLayout());
+        
+        JPanel border1 = new JPanel();
+        JPanel border2 = new JPanel();
+        JPanel border3 = new JPanel();
+        JPanel border4 = new JPanel();
+        border1.setBackground(Color.black);
+        border2.setBackground(Color.black);
+        border3.setBackground(Color.black);
+        border4.setBackground(Color.black);
+        border1.setPreferredSize(new Dimension(10, 10));
+        border2.setPreferredSize(new Dimension(10, 10));
+        border3.setPreferredSize(new Dimension(10, 10));
+        border4.setPreferredSize(new Dimension(10, 10));
+        screenOfProject.add(border1, BorderLayout.NORTH);
+        screenOfProject.add(border2, BorderLayout.EAST);
+        screenOfProject.add(border3, BorderLayout.SOUTH);
+        screenOfProject.add(border4, BorderLayout.WEST);
+        
+        addWeatherAppComponents(screenOfProject);
+    }
+    
+    public static void addWeatherAppComponents(JFrame frame) {
+        JTextField locationField = new JTextField(80);
+        locationField.setBounds(15,15,500,200);
+        JButton searchButton = new JButton("Search");
+        searchButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+              
+            }
+        });
+        
+        JTextArea resultArea = new JTextArea(10, 100);
+        resultArea.setEditable(false);
+        
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Enter Location:"));
+        panel.add(locationField);
+        panel.add(searchButton);
+        
+        frame.add(panel, BorderLayout.NORTH);
+        frame.add(new JScrollPane(resultArea), BorderLayout.CENTER);
+        
+        frame.pack();
     }
 }
+
+ 
