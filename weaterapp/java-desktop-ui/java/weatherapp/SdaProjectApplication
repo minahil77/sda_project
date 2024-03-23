@@ -2,6 +2,10 @@ package sda.sda_project;
 
 import javax.swing.*;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,11 +13,28 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SdaProjectApplication {
 
 	 public static void main(String [] args){
-        SwingUtilities.invokeLater(new Runnable(){
-            @Override
-            public void run(){
-                new weatherAppGui().setVisible(true);
-            }
-        });
+       JFrame screenOfProject=new JFrame();
+       screenOfProject.setDefaultCloseOperation(screenOfProject.EXIT_ON_CLOSE);
+       screenOfProject.setSize(1200,800);
+       screenOfProject.setVisible(true);
+       screenOfProject.setLocationRelativeTo(null);
+       screenOfProject.setLayout(new BorderLayout());
+
+       JPanel border1=new JPanel();
+       JPanel border2=new JPanel();
+       JPanel border3=new JPanel();
+       JPanel border4=new JPanel();
+       border1.setBackground(Color.black);
+       border2.setBackground(Color.black);
+       border3.setBackground(Color.black);
+       border4.setBackground(Color.black);
+       border1.setPreferredSize(new Dimension(10,10));
+       border2.setPreferredSize(new Dimension(10,10));
+       border3.setPreferredSize(new Dimension(10,10));
+       border4.setPreferredSize(new Dimension(10,10));
+       screenOfProject.add(border1,BorderLayout.NORTH);
+       screenOfProject.add(border2,BorderLayout.EAST);
+       screenOfProject.add(border3,BorderLayout.SOUTH);
+       screenOfProject.add(border4,BorderLayout.WEST);
     }
 }
