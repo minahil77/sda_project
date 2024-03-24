@@ -66,7 +66,7 @@ body {
   transition: transform 300ms ease;
   transform: translateZ(0) scale(1.02) perspective(1000px);
   float: left;
-  opacity: 0.5;
+ 
 }
 
 .weather-side:hover {
@@ -131,6 +131,9 @@ body {
   margin: 0;
 }
 
+.l1{
+    font-size:12px;
+}
 .info-side {
   position: relative;
   float: left;
@@ -178,9 +181,22 @@ body {
   margin:20px;
   color: #222831;
   box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
-  opacity: 0.5;
-}
  
+}
+
+/* .week-list>li:hover {
+  transform: scale(1.1);
+  background: #fff;
+  color: #222831;
+  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)
+} */
+
+/* .week-list>li.active {
+  background: #fff;
+  color: #222831;
+  border-radius: 10px;
+} */
+
 .week-list li .day-name {
   display: block;
   margin: 10px 0 0 0;
@@ -209,5 +225,46 @@ body {
   font-weight: 700;
   margin-bottom: 25px;
 }
+.sunTimes{
+    width:700px;
+    justify-content: space-around;
+    display: flex;
+}
+ .sunset1{
+  border: 1px solid black;
+  width:300px;
+  height:150px;
+  background-color: white;
+  border-radius: 10px;
+ }
+ .sunraise1{
+    border: 1px solid black;
+  width:300px;
+  height:150px;
+  background-color: white;
+  border-radius: 10px;
+ }
 
- 
+ .s_title{
+    display: block;
+    margin: 10px 0 0 0;
+    position: relative;
+    top:20px;
+    left:40px;
+  color: #222831;
+ }
+ .sunrise{
+    color: #000000;
+    font-size:13px;
+    position: relative;
+    top:50px;
+    left:80px;
+
+ }
+ .sunset{
+    color: #000000;
+    font-size:13px;
+    position: relative;
+    top:50px;
+    left:80px;
+ }
