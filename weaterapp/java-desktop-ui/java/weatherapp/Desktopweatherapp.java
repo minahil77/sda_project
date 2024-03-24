@@ -1,56 +1,56 @@
-package sda.sda_project;
+// package com.weatherapp;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+// import javax.swing.*;
+// import java.awt.event.ActionEvent;
+// import java.awt.event.ActionListener;
 
-public class weatherAppGui extends JFrame {
-    private JTextField searchField;
+// public class DesktopWeatherApp {
+//     private JFrame frame;
+//     private JTextField latitudeField;
+//     private JTextField longitudeField;
 
-    public weatherAppGui() {
-        setTitle("Weather App");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1200, 800);
-        setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
- 
-        //searchbaar
-        JPanel searchBar= new JPanel();
-        Color searchColor= Color.decode("#FF0000");
-        searchBar.setBackground(Color.decode("#41C9E2")); 
-        searchBar.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 20));
-        searchField = new JTextField(50);
-        //adding margin 
-        int margin = 10; 
-        searchBar.setBorder(BorderFactory.createEmptyBorder(margin, margin, margin, margin));
-        searchField.setMargin(new Insets(7, 7, 7, 7));
-        JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String searchText = searchField.getText(); 
-                JOptionPane.showMessageDialog(weatherAppGui.this, "Searching for: " + searchText);
-            }
-        });
-        searchBar.add(searchField);
-        searchBar.add(searchButton); 
-        add(searchBar, BorderLayout.NORTH);
+//     public DesktopWeatherApp() {
+//         initialize();
+//     }
 
-        JPanel border1 = new JPanel();
-        JPanel border2 = new JPanel();
-        JPanel border3= new JPanel();
-        border1.setBackground(Color.decode("#DFF5FF"));
-        border2.setBackground(Color.decode("#DFF5FF"));
-        border3.setBackground(Color.decode("#DFF5FF"));
-        border1.setPreferredSize(new Dimension(10, 10));
-        border2.setPreferredSize(new Dimension(10, 10));
-        border3.setPreferredSize(new Dimension(10, 10));
-        add(border1, BorderLayout.EAST);
-        add(border2, BorderLayout.SOUTH);
-        add(border3, BorderLayout.WEST);
-    }
+//     private void initialize() {
+//         frame = new JFrame("Desktop Weather App");
+//         frame.setBounds(100, 100, 450, 300);
+//         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//         frame.getContentPane().setLayout(null);
 
-  
-    
-}
+//         JLabel lblLatitude = new JLabel("Latitude:");
+//         lblLatitude.setBounds(20, 30, 70, 20);
+//         frame.getContentPane().add(lblLatitude);
+
+//         latitudeField = new JTextField();
+//         latitudeField.setBounds(100, 30, 150, 20);
+//         frame.getContentPane().add(latitudeField);
+//         latitudeField.setColumns(10);
+
+//         JLabel lblLongitude = new JLabel("Longitude:");
+//         lblLongitude.setBounds(20, 60, 70, 20);
+//         frame.getContentPane().add(lblLongitude);
+
+//         longitudeField = new JTextField();
+//         longitudeField.setBounds(100, 60, 150, 20);
+//         frame.getContentPane().add(longitudeField);
+//         longitudeField.setColumns(10);
+
+//         JButton btnShowWeather = new JButton("Show Weather");
+//         btnShowWeather.addActionListener(new ActionListener() {
+//             public void actionPerformed(ActionEvent e) {
+//                 double latitude = Double.parseDouble(latitudeField.getText());
+//                 double longitude = Double.parseDouble(longitudeField.getText());
+//                 WeatherService weatherService = new WeatherService();
+//                 weatherService.showCurrentWeather(latitude, longitude);
+//             }
+//         });
+//         btnShowWeather.setBounds(100, 90, 150, 30);
+//         frame.getContentPane().add(btnShowWeather);
+//     }
+
+//     public void setVisible(boolean visible) {
+//         frame.setVisible(visible);
+//     }
+// }
