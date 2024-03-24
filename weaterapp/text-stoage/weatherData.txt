@@ -1,1 +1,21 @@
+Location: New York, US
+Latitude: 40.7128
+Longitude: -74.0060
+Temperature: 22.5°C
+Feels Like: 25.0°C
+Min Temperature: 20.0°C
+Max Temperature: 25.0°C
+Humidity: 65%
+Weather Description: Clear Sky
+Timestamp: 2024-03-16 10:00:00
 
+Location: London, UK
+Latitude: 51.5074
+Longitude: -0.1278
+Temperature: 18.0°C
+Feels Like: 17.0°C
+Min Temperature: 17.0°C
+Max Temperature: 19.0°C
+Humidity: 75%
+Weather Description: Partly Cloudy
+Timestamp: 2024-03-16 10:00:00
