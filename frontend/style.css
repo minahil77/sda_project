@@ -41,7 +41,7 @@ body {
     transition: transform 200ms ease;
   }
   
-  .location-input:hover {
+  .searchBar-input:hover {
     transform: scale(0.95);
   }
 .container {
@@ -56,13 +56,17 @@ body {
 
 .weather-side {
   position: relative;
-  height: 85%;
+  height: 80%;
+  background-color: white;
   border-radius: 25px; 
   width: 300px;
+  color: #222831;
+  margin:10px;
   box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
   transition: transform 300ms ease;
   transform: translateZ(0) scale(1.02) perspective(1000px);
   float: left;
+  opacity: 0.5;
 }
 
 .weather-side:hover {
@@ -164,12 +168,46 @@ body {
 
 .week-list li {
   float: left;
-  padding: 15px;
+  padding: 10px;
+  width:140px;
+  height:140px;
   cursor: pointer;
   transition: 200ms ease;
   border-radius: 10px;
   background-color: white;
   margin:20px;
   color: #222831;
-  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+  opacity: 0.5;
 }
+ 
+.week-list li .day-name {
+  display: block;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+
+.week-list li .day-icon {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: auto;
+  margin: 0 auto;
+  font-size: 35px;
+}
+
+.week-list li .day-icon img {
+  filter: drop-shadow(0 0 2px white);
+}
+
+.week-list li .day-temp {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+ 
