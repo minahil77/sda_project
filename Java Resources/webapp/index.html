@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<Link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">  
+</head>
+<body>
+ 
+     
+ 
+<div class="container">
+    <div class="SearchBar">
+         <form action="serverSide" method="post">
+        <input   name="inputArea" >
+        <button>Search</button>
+        </form>
+       
+    </div>
+    <div class="weather-side">
+        <div class="weather-app"></div>
+        <div class="date-container">
+            <h2 class="date-dayname"></h2>
+            <span class="date-day"></span>
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="location"></span>
+            
+        </div>
+        <div class="weather-container">
+            <span class="weather-icon"></span>
+            <h1 class="weather-temp"></h1>
+            <h3 class="weather-desc"></h3>
+            <span class="longitude l1"></span><br>
+            <span class="latitude l1"></span>
+        </div>
+    </div>
+    <div class="info-side">
+        <div class="today-info-container">
+            <div class="today-info">
+                <div class="humidity">
+                    <span class="title"><i class="fa-solid fa-droplet"></i> HUMIDITY</span>
+                    <span class="value"></span>
+                    <div class="clear"></div>
+                </div>
+                <div class="wind">
+                    <span class="title"><i class="fa-solid fa-wind"></i> WIND</span>
+                    <span class="value"></span>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="week-container">
+            <ul class="week-list">
+                <li>
+                    <span class="day-name">Monday</span>
+                    <span class="day-temp">23</span>
+                    <span class="day-icon"></span>
+                </li>
+                <li>
+                    <span class="day-name"></span>
+                    <span class="day-temp"></span>
+                    <span class="day-icon"></span>
+                </li>
+                <li>
+                    <span class="day-name"></span>
+                    <span class="day-temp"></span>
+                    <span class="day-icon"></span>
+                </li>
+                <li>
+                    <span class="day-name"></span>
+                    <span class="day-temp"></span>
+                    <span class="day-icon"></span>
+                </li>
+              
+            </ul>
+        </div>
+
+        <div class="sunTimes">
+            <div class="sunset1">
+                <span class="s_title">Sunrise</span>
+                <div class="icon"></div>
+                <p class="sunset"></p>
+            </div>
+            <div class="sunraise1">
+                
+                <span class="s_title">Sunset</span>
+                <div class="icon"></div>
+                <p class="sunrise"></p>
+            </div>
+        </div>
+     
+    </div>
+
+</div>
+</body>
+</html>
