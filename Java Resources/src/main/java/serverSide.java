@@ -14,8 +14,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.TimeZone;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class serverSide extends HttpServlet {
@@ -61,7 +65,7 @@ public class serverSide extends HttpServlet {
         SimpleDateFormat temp_date = new SimpleDateFormat("dd-MM-yyyy");
         String date1 = temp_date.format(date);
         SimpleDateFormat temp_day= new SimpleDateFormat("EEEE");
-        String day = temp_date.format(date);
+        String day = temp_day.format(date);
         //Temperature
         double temperature_in_K = jsonObject.getAsJsonObject("main").get("temp").getAsDouble();
         int temperature_in_C = (int) (temperature_in_K- 273.15);
@@ -90,7 +94,11 @@ public class serverSide extends HttpServlet {
         
         String currentWeather = jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("main").toString();
         
-       
+       // icon 
+//        String icon1 = jsonObject.getAsJsonArray("weather").get(1).getAsJsonObject().get("icon").toString();
+
+      
+        
         request.setAttribute("city", userInput);
         request.setAttribute("temperature", temperature_in_C);
         request.setAttribute("desp",currentWeather ); 
@@ -102,11 +110,16 @@ public class serverSide extends HttpServlet {
         request.setAttribute("sunrise", sunriseTime);
         request.setAttribute("sunset", sunsetTime);
         request.setAttribute("date1", date1); 
-        request.setAttribute(" day ", day); 
- 
+        request.setAttribute("day", day); 
+//        request.setAttribute("icon1", icon1); 
+        
         request.setAttribute("weatherData", saveResponse.toString());
         request.getRequestDispatcher("internal.jsp").forward(request, response);
-		doGet(request, response);
+        
+        
+        //5 days 3 hours interval forecast
+ 
+	doGet(request, response);
 	}
-
+     
 }
