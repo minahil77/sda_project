@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
-
- 
- 
  
 <!DOCTYPE html>
 <html>
@@ -33,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("pexels-brett-sayles-912364.jpg");
+  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(back1.jpeg);
   height: 100vh;
   background-position: center;
   background-size: cover;
@@ -73,7 +70,7 @@ body {
 
 .weather-side {
   position: relative;
-  height: 80%;
+  height: 90%;
   background-color: white;
   border-radius: 25px; 
   width: 300px;
@@ -178,86 +175,23 @@ body {
   float: right;
 }
 
-.week-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 10px 35px;
-  box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.week-list li {
-  float: left;
-  padding: 10px;
-  width:140px;
-  height:140px;
-  cursor: pointer;
-  transition: 200ms ease;
-  border-radius: 10px;
-  background-color: white;
-  margin:20px;
-  color: #222831;
-  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
- 
-}
-
-/* .week-list>li:hover {
-  transform: scale(1.1);
-  background: #fff;
-  color: #222831;
-  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)
-} */
-
-/* .week-list>li.active {
-  background: #fff;
-  color: #222831;
-  border-radius: 10px;
-} */
-
-.week-list li .day-name {
-  display: block;
-  margin: 10px 0 0 0;
-  text-align: center;
-}
-
-.week-list li .day-icon {
-  display: flex;
-  margin-top: 20px;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  width: auto;
-  margin: 0 auto;
-  font-size: 35px;
-}
-
-.week-list li .day-icon img {
-  filter: drop-shadow(0 0 2px white);
-}
-
-.week-list li .day-temp {
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
 .sunTimes{
-    width:700px;
+    width:900px;
     justify-content: space-around;
     display: flex;
 }
  .sunset1{
   border: 1px solid black;
-  width:300px;
-  height:150px;
+  width:400px;
+  height:200px;
   background-color: white;
   border-radius: 10px;
  }
  .sunrise1{
     border: 1px solid black;
-  width:300px;
-  height:150px;
+
+  width:400px;
+  height:200px;
   background-color: white;
   border-radius: 10px;
  }
@@ -268,24 +202,56 @@ body {
     position: relative;
     top:20px;
     left:40px;
+    font-size:25px;
   color: #222831;
  }
  .sunrise{
     color: #000000;
     font-size:13px;
     position: relative;
-    top:50px;
-    left:80px;
+    top:10px;
+    left:60px;
 
  }
  .sunset{
     color: #000000;
     font-size:13px;
     position: relative;
-    top:50px;
-    left:80px;
+    top:10px;
+    left:60px;
+
  }
 
+#icon1{
+  font-size:70px;
+  position: relative;
+  top:30px;
+  left:300px;
+}
+#icon2{
+ font-size:70px;
+  position: relative;
+  top:30px;
+  left:300px;
+}
+
+.pollution{
+   width:800px;
+   height:200px;
+   background-color: white;
+  border-radius: 25px; 
+  margin:20px;
+}
+form  .btn1{
+    width:80px;
+    height:40px;
+    position: relative;
+    left: 780px;
+    border-radius: 20px;
+
+    border:none;
+
+}
 </style>
 </head>
 <body>
@@ -296,8 +262,8 @@ body {
     <div class="weather-side">
         <div class="weather-app"></div>
         <div class="date-container">
-            <h2 class="date-dayname"></h2>
-            <span class="date-day">${date}</span>
+            <h2 class="date-dayname">${day}</h2>
+            <span class="date-day">${date1}</span>
             <i class="fa-solid fa-location-dot"></i>
             <span class="location">${city}</span>
             
@@ -316,6 +282,9 @@ body {
                 <div class="humidity">
                     <span class="title"><i class="fa-solid fa-droplet"></i> HUMIDITY</span>
                     <span class="value">${humidity} %</span>
+                    <form action="forecast.html">
+                        <button class="btn1">Forecast </button>
+                    </form>
                     <div class="clear"></div>
                 </div>
                 <div class="wind">
@@ -325,50 +294,27 @@ body {
                 </div>
             </div>
         </div>
-        <div class="week-container">
-            <ul class="week-list">
-                <li>
-                    <span class="day-name">Monday</span>
-                    <span class="day-temp">23</span>
-                    <span class="day-icon"></span>
-                </li>
-                <li>
-                    <span class="day-name"></span>
-                    <span class="day-temp"></span>
-                    <span class="day-icon"></span>
-                </li>
-                <li>
-                    <span class="day-name"></span>
-                    <span class="day-temp"></span>
-                    <span class="day-icon"></span>
-                </li>
-                <li>
-                    <span class="day-name"></span>
-                    <span class="day-temp"></span>
-                    <span class="day-icon"></span>
-                </li>
-              
-            </ul>
-        </div>
-
+        
         <div class="sunTimes">
             <div class="sunrise1">
                 <span class="s_title">Sunrise</span>
-                <div class="icon"></div>
+                <span id="icon1"></span>
                 <p class="sunrise">${sunrise}</p>
             </div>
             <div class="sunset1">
                 
                 <span class="s_title">Sunset</span>
-                <div class="icon"></div>
+                <span id="icon2"></span>
                 <p class="sunset">${sunset}</p>
             </div>
             
         </div>
-  
-          <form id="airPollutionForm" action="airPollution.jsp" method="post">
-    <button type="submit">Air pollution</button>
-</form>
+        <div class="pollution">
+            <form id="airPollutionForm" action="airPollution.jsp" method="post">
+                <button type="submit">Air pollution</button>
+            </form>
+        </div>
+         
     </div>
 
 </div>
@@ -378,8 +324,17 @@ body {
         var formAction = this.getAttribute("action");
         window.location.href = formAction;
     });
+    let c1=document.getElementById('icon1');
+    let c2=document.getElementById('icon2');
+     
+    document.getElementById('weatherInfo');
+    c1.innerHTML = '☀️'; 
+    c2.innerHTML = '☁️'; 
     </script>
 </body>
 </html>
 
  
+
+       
+       
