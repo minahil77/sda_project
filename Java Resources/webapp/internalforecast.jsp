@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-  <style>
+ <style>
     *{
       padding:0;
       margin:0;
@@ -13,7 +13,7 @@
   .main-container{
     width:100%;
     height:160vh;
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(weather-forecasting.jpg);
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(back1.jpeg);
     background-position: center;
     background-size: cover;
     /* filter: blur(2px); */
@@ -50,20 +50,53 @@
    #weatherInfo .date{
 
 }
- 
+ .SearchBar{
+    padding: 25px 35px;
+  }
+  
+  .SearchBar_input {
+    position: relative;
+    width: 60%;
+    border: none;
+    border-radius: 25px;
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+    background-image: var(--gradient);
+    color: #000000;
+    font-weight: 700;
+    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+    transition: transform 200ms ease;
+    margin-left: 190px;
+  }
+  
+  .searchBar-input:hover {
+    transform: scale(0.95);
+  }
+  .btn{
+    width:90px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #00224D;
+    color:white;
+    border:none;
+    margin-left: 20px;
+  }
   </style>
 </head>
 <body>
-  <div class="main-container">
-    <input type="text" id="locationInput" placeholder="Enter location">
-    <button onclick="getWeather()">Get Weather</button>
+   <div class="main-container">
+    <div class="SearchBar">
+    <input type="text" id="locationInput" placeholder="Enter location" class="SearchBar_input">
+    <button onclick="getWeather()" class="btn">Search</button>
+     </div>
+  
      
     <div id="weatherInfo"></div>
   </div>
    <div class="second-container">
 
    </div>
-    <script >
+  <script >
     function getWeather() {
   const locationInput = document.getElementById('locationInput').value;
   const apiKey = "306ab9cd41753cb018c5190483263290"; // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
@@ -171,7 +204,7 @@ switch(description) {
       weatherInfoDiv.appendChild(weatherItem);
   });
 }
- 
+
   </script>
 </body>
 </html>
