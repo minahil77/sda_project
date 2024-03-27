@@ -1,62 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
+  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <style>
-    *{
-      padding:0;
-      margin:0;
-    }
-  .main-container{
-    width:100%;
-    height:160vh;
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(back1.jpeg);
-    background-position: center;
-    background-size: cover;
-    /* filter: blur(2px); */
-  }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">  
+<style>
 
-  .weather-item{
-    width:150px;
-    height:190px;
-    background-color:rgba(255,255,255,0.5);
-    color:black;
-    margin:10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border-radius:10px;
-    
-  }
-
-   #weatherInfo{
-    width:90%;
-    height:80%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    margin:10px;
-   }
-   #weatherInfo .day{
-    
-   }
-   #weatherInfo .temp{
-     font-size:30px;
-
-   }
-   #weatherInfo .date{
-
+* {
+  box-sizing: border-box;
+  line-height: 1.25em;
 }
- .SearchBar{
+
+.clear {
+  clear: both;
+}
+ 
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(back1.jpeg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  width:100%;
+  /* opacity:0.5; */
+}
+.SearchBar{
     padding: 25px 35px;
   }
   
   .SearchBar_input {
     position: relative;
-    width: 60%;
+    width: 100%;
     border: none;
     border-radius: 25px;
     padding: 15px;
@@ -66,145 +53,301 @@
     font-weight: 700;
     box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
     transition: transform 200ms ease;
-    margin-left: 190px;
   }
   
   .searchBar-input:hover {
     transform: scale(0.95);
   }
-  .btn{
-    width:90px;
+.container {
+  /* border-radius: 25px; */
+  box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
+  background-color: #222831;
+  color: #ffffff;
+  height: 90vh;
+  width:90%;
+  opacity: 0.4;
+}
+
+.weather-side {
+  position: relative;
+  height: 90%;
+  background-color: white;
+  border-radius: 25px; 
+  width: 300px;
+  color: #222831;
+  margin:10px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+  transition: transform 300ms ease;
+  transform: translateZ(0) scale(1.02) perspective(1000px);
+  float: left;
+ 
+}
+
+.weather-side:hover {
+  transform: scale(1.1) perspective(1500px) rotateY(10deg);
+}
+
+.weather-app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: var(--gradient);
+  border-radius: 25px;
+  opacity: 0.4;
+}
+
+.date-container {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.date-dayname {
+  margin: 0;
+}
+
+.date-day {
+  display: block;
+}
+
+.location {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.location-icon {
+  display: inline-block;
+  height: 0.8em;
+  width: auto;
+  margin-right: 5px;
+}
+
+.weather-container {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+
+.weather-icon img {
+  filter: drop-shadow(0 0 2px #fff);
+  width: 100%;
+}
+
+.weather-temp {
+  margin: 0;
+  font-weight: 700;
+  font-size: 4em;
+}
+
+.weather-desc {
+  margin: 0;
+}
+
+.l1{
+    font-size:12px;
+}
+.info-side {
+  position: relative;
+  float: left;
+  height: 100%;
+  padding-top: 25px;
+}
+
+.today-info {
+  padding: 15px;
+  margin: 0 25px 25px 25px;
+  box-shadow: 0 0 50px -5px rgba(0, 0, 0);
+  border-radius: 10px;
+}
+
+.today-info>div:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+
+.today-info div .title {
+  float: left;
+  font-weight: 700;
+}
+
+.today-info div .value {
+  float: right;
+}
+
+.sunTimes{
+    width:900px;
+    justify-content: space-around;
+    display: flex;
+}
+ .sunset1{
+  border: 1px solid black;
+  width:400px;
+  height:200px;
+  background-color: white;
+  border-radius: 10px;
+ }
+ .sunrise1{
+    border: 1px solid black;
+
+  width:400px;
+  height:200px;
+  background-color: white;
+  border-radius: 10px;
+ }
+
+ .s_title{
+    display: block;
+    margin: 10px 0 0 0;
+    position: relative;
+    top:20px;
+    left:40px;
+    font-size:25px;
+  color: #222831;
+ }
+ .sunrise{
+    color: #000000;
+    font-size:13px;
+    position: relative;
+    top:10px;
+    left:60px;
+
+ }
+ .sunset{
+    color: #000000;
+    font-size:13px;
+    position: relative;
+    top:10px;
+    left:60px;
+
+ }
+
+#icon1{
+  font-size:70px;
+  position: relative;
+  top:30px;
+  left:300px;
+}
+#icon2{
+ font-size:70px;
+  position: relative;
+  top:30px;
+  left:300px;
+}
+
+.pollution{
+   width:850px;
+   height:200px;
+   box-shadow: 0 0 50px -5px rgba(0, 0, 0);
+   background-color:white;
+   color:black;
+  border-radius: 10px; 
+  margin:20px;
+  padding:15px;
+}
+.pollution p{
+
+ margin-left:140px;;
+}
+form  .btn1{
+    width:80px;
+    height:40px;
+    position: relative;
+    left: 780px;
     border-radius: 20px;
-    padding: 10px;
-    background-color: #00224D;
-    color:white;
+
     border:none;
-    margin-left: 20px;
-  }
-  </style>
+
+}
+</style>
 </head>
 <body>
-   <div class="main-container">
-    <div class="SearchBar">
-    <input type="text" id="locationInput" placeholder="Enter location" class="SearchBar_input">
-    <button onclick="getWeather()" class="btn">Search</button>
-     </div>
-  
-     
-    <div id="weatherInfo"></div>
-  </div>
-   <div class="second-container">
-
-   </div>
-  <script >
-    function getWeather() {
-  const locationInput = document.getElementById('locationInput').value;
-  const apiKey = "306ab9cd41753cb018c5190483263290"; // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${locationInput}&appid=${apiKey}`;
-
-  fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-          displayWeather(data);
-      })
-      .catch(error => {
-          console.log('Error fetching weather data:', error);
-      });
-}
-
-function displayWeather(data) {
-  const weatherInfoDiv = document.getElementById('weatherInfo');
-  weatherInfoDiv.innerHTML = '';
-
-  data.list.forEach(item => {
-    const dateTime = new Date(item.dt_txt);
-    const date = dateTime.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });  
-    const day = dateTime.toLocaleDateString('en-US', { weekday:'long' });
-    const time = dateTime.toLocaleTimeString();
-
-       temperature = item.main.temp;
-      const temp = parseInt(temperature - 273.15);
-      const description = item.weather[0].description;
-      let weatherEmoji = '';
-
-switch(description) {
-  case 'clear sky':
-        weatherEmoji = '☀️';
-        break;
-      case 'few clouds':
-      case 'scattered clouds':
-      case 'broken clouds':
-        weatherEmoji = '🌤️';
-        break;
-      case 'overcast clouds':
-        weatherEmoji = '☁️';
-        break;
-      case 'light rain':
-      case 'moderate rain':
-      case 'heavy intensity rain':
-      case 'very heavy rain':
-      case 'extreme rain':
-      case 'freezing rain':
-      case 'light intensity shower rain':
-      case 'shower rain':
-      case 'heavy intensity shower rain':
-      case 'ragged shower rain':
-        weatherEmoji = '🌧️';
-        break;
-      case 'thunderstorm with light rain':
-      case 'thunderstorm with rain':
-      case 'thunderstorm with heavy rain':
-      case 'light thunderstorm':
-      case 'thunderstorm':
-      case 'heavy thunderstorm':
-      case 'ragged thunderstorm':
-      case 'thunderstorm with light drizzle':
-      case 'thunderstorm with drizzle':
-      case 'thunderstorm with heavy drizzle':
-        weatherEmoji = '⛈️';
-        break;
-      case 'snow':
-      case 'light snow':
-      case 'Heavy snow':
-      case 'sleet':
-      case 'light shower sleet':
-      case 'shower sleet':
-      case 'light rain and snow':
-      case 'rain and snow':
-      case 'light shower snow':
-      case 'shower snow':
-      case 'heavy shower snow':
-        weatherEmoji = '❄️';
-        break;
-      case 'mist':
-      case 'smoke':
-      case 'haze':
-      case 'sand, dust whirls':
-      case 'fog':
-      case 'sand':
-      case 'dust':
-      case 'volcanic ash':
-      case 'squalls':
-      case 'tornado':
-        weatherEmoji = '🌫️';
-        break;
-      default:
-        weatherEmoji = '❓'; 
-
+<div class="container">
     
-}
-      const weatherItem = document.createElement('div');
-      weatherItem.classList.add('weather-item');
-      weatherItem.innerHTML = `<p class="day"> ${day}</p><br>
-                          <p class="emoji">${weatherEmoji}</p><br>
-                                <p class="temp">${temp} </p><br>
-                               <p class="date">${date}</p><br>
-                               <p>Time: ${time}</p>
-                                 `;
-      weatherInfoDiv.appendChild(weatherItem);
-  });
-}
+       
+    
+    <div class="weather-side">
+        <div class="weather-app"></div>
+        <div class="date-container">
+            <h2 class="date-dayname">${day}</h2>
+            <span class="date-day">${date1}</span>
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="location">${city}</span>
+            
+        </div>
+        <div class="weather-container">
+            <span class="weather-icon"></span>
+            <h1 class="weather-temp">${temperature}</h1>
+            <h3 class="weather-desc">${decrip}</h3>
+            <span class="longitude l1">longitude: ${longitude}</span><br>
+            <span class="latitude l1">latitude: ${latitude}</span>
+        </div>
+    </div>
+    <div class="info-side">
+        <div class="today-info-container">
+            <div class="today-info">
+                <div class="humidity">
+                    <span class="title"><i class="fa-solid fa-droplet"></i> HUMIDITY</span>
+                    <span class="value">${humidity} %</span>
+                    <form action="forecast.html">
+                        <button class="btn1">Forecast </button>
+                    </form>
+                    <div class="clear"></div>
+                </div>
+                <div class="wind">
+                    <span class="title"><i class="fa-solid fa-wind"></i> WIND</span>
+                    <span class="value">${wind} m/s</span>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sunTimes">
+            <div class="sunrise1">
+                <span class="s_title">Sunrise</span>
+                <span id="icon1"></span>
+                <p class="sunrise">${sunrise}</p>
+            </div>
+            <div class="sunset1">
+                
+                <span class="s_title">Sunset</span>
+                <span id="icon2"></span>
+                <p class="sunset">${sunset}</p>
+            </div>
+            
+        </div>
+        <div class="pollution">
+           <h3>Air pollution</h3>
+            <p>&nbsp;&nbsp; co:${co}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no:${no } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  no2:${no2}</p>
+            <p>&nbsp;&nbsp; o3:${o3}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; so2:${so2} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pm2_5:${pm2_5 } </p>
+            <p>&nbsp;&nbsp; pm10:${pm10} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nh3:${nh3} </p>
+            <form id="airPollutionForm" action="airPollution.jsp" method="post" style="display: none;">
+                <button type="submit">Air pollution</button>
+            </form>
+        </div>
+         
+    </div>
 
-  </script>
+</div>
+
+<script>
+    document.getElementById("airPollutionForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formAction = this.getAttribute("action");
+        window.location.href = formAction;
+    });
+    let c1=document.getElementById('icon1');
+    let c2=document.getElementById('icon2');
+     
+    document.getElementById('weatherInfo');
+    c1.innerHTML = '☀️'; 
+    c2.innerHTML = '☁️'; 
+    </script>
+    
 </body>
 </html>
+
+ 
+
+       
+       
