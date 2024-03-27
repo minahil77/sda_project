@@ -259,6 +259,16 @@ form  .btn1{
     border:none;
 
 }
+
+ 
+#notification {
+  background-color: #ffcccc;
+  padding: 20px;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  position: fixed;
+  top: 20px;
+
 </style>
 </head>
 <body>
@@ -327,7 +337,15 @@ form  .btn1{
         </div>
          
     </div>
-
+    
+  
+  <div id="notification" class="hidden">
+    <h2>Air Quality Alert!</h2>
+    <p>Poor air quality detected. Take necessary precautions.</p>
+    <p><span id="pollutants"></span></p>
+  </div>
+   
+  
 </div>
 
 <script>
@@ -342,6 +360,56 @@ form  .btn1{
     document.getElementById('weatherInfo');
     c1.innerHTML = '☀️'; 
     c2.innerHTML = '☁️'; 
+    
+    // notification 
+    apikey="306ab9cd41753cb018c5190483263290";
+    const latitude =  ${latitude};
+    const longitude =${longitude};
+     
+    
+    const city = ${city}; 
+    const apiUrl = http://api.openweathermap.org/data/2.5/air_pollution?q=${city}&appid=${apiKey};
+   
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const pollutants = data.list[0].components; 
+    const poorQuality = isPoorAirQuality(pollutants);
+    if (poorQuality) {
+      document.getElementById('notification').classList.remove('hidden');
+      displayPollutants(pollutants);
+    }
+  })
+  .catch(error => console.error('Error fetching air quality data:', error));
+function isPoorAirQuality(pollutants) {
+  const thresholds = {
+    co: 9, 
+    no: 200, 
+    no2: 100,
+    o3: 150,
+    so2: 20, 
+    nh3: 50, 
+    pm2_5: 25,
+    pm10: 50 
+  };
+  for (const [pollutant, value] of Object.entries(pollutants)) {
+    if (value > thresholds[pollutant]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Function to display pollutants with poor air quality
+function displayPollutants(pollutants) {
+  const poorPollutants = [];
+  for (const [pollutant, value] of Object.entries(pollutants)) {
+    if (value > thresholds[pollutant]) {
+      poorPollutants.push(${pollutant}: ${value});
+    }
+  }
+  document.getElementById('pollutants').innerText = poorPollutants.join(', ');
+} 	 
     </script>
     
 </body>
