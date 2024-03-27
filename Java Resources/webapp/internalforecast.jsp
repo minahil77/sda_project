@@ -1,9 +1,10 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
   <style>
     *{
       padding:0;
@@ -11,7 +12,7 @@
     }
   .main-container{
     width:100%;
-    height:150vh;
+    height:160vh;
     background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(weather-forecasting.jpg);
     background-position: center;
     background-size: cover;
@@ -20,7 +21,7 @@
 
   .weather-item{
     width:150px;
-    height:170px;
+    height:190px;
     background-color:rgba(255,255,255,0.5);
     color:black;
     margin:10px;
@@ -51,8 +52,8 @@
 }
  
   </style>
- </head>
- <body>
+</head>
+<body>
   <div class="main-container">
     <input type="text" id="locationInput" placeholder="Enter location">
     <button onclick="getWeather()">Get Weather</button>
@@ -62,7 +63,7 @@
    <div class="second-container">
 
    </div>
-  <script >
+    <script >
     function getWeather() {
   const locationInput = document.getElementById('locationInput').value;
   const apiKey = "306ab9cd41753cb018c5190483263290"; // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
@@ -86,7 +87,8 @@ function displayWeather(data) {
     const dateTime = new Date(item.dt_txt);
     const date = dateTime.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });  
     const day = dateTime.toLocaleDateString('en-US', { weekday:'long' });
-      const time = dateTime.toLocaleTimeString();
+    const time = dateTime.toLocaleTimeString();
+
        temperature = item.main.temp;
       const temp = parseInt(temperature - 273.15);
       const description = item.weather[0].description;
@@ -164,12 +166,12 @@ switch(description) {
                           <p class="emoji">${weatherEmoji}</p><br>
                                 <p class="temp">${temp} </p><br>
                                <p class="date">${date}</p><br>
-                               
+                               <p>Time: ${time}</p>
                                  `;
       weatherInfoDiv.appendChild(weatherItem);
   });
 }
-
+ 
   </script>
- </body>
- </html>
+</body>
+</html>
