@@ -98,33 +98,35 @@ public class serverSide extends HttpServlet {
         
      
  //air pollution
-//        String air_url="http://api.openweathermap.org/data/2.5/air_pollution?lat="+latitude+"&lon="+longt+"&appid="+key;
-//        URL airApi=new URL (air_url);
-//		HttpURLConnection connection2 = (HttpURLConnection) airApi.openConnection();
-//           connection2.setRequestMethod("GET");
-//        InputStream inputConnection2 = connection2.getInputStream();
-//        InputStreamReader read_information2 = new InputStreamReader(inputConnection2);
+       String air_url="http://api.openweathermap.org/data/2.5/air_pollution?lat="+latitude+"&lon="+longt+"&appid="+key;
+     URL airApi=new URL (air_url);
+     HttpURLConnection connection2 = (HttpURLConnection) airApi.openConnection();
+         connection2.setRequestMethod("GET");
+      InputStream inputConnection2 = connection2.getInputStream();
+    InputStreamReader read_information2 = new InputStreamReader(inputConnection2);
         
         
-//    
-//        StringBuilder saveResponse2 = new StringBuilder();
-//        Scanner scanner2 = new Scanner(read_information2);
-//        
-//        while (scanner2.hasNext()) {
-//        	 saveResponse2.append(scanner2.nextLine());
-//        }
-//        System.out.println(saveResponse2);
-//        Gson gson2 = new Gson();
-//        JsonObject jsonObject2 = gson2.fromJson(saveResponse2.toString(), JsonObject.class);
-//        scanner2.close();
-//        
+
+    StringBuilder saveResponse2 = new StringBuilder();
+      Scanner scanner2 = new Scanner(read_information2);
+      
+      while (scanner2.hasNext()) {
+      	 saveResponse2.append(scanner2.nextLine());
+    }
+     System.out.println(saveResponse2);
+      Gson gson2 = new Gson();
+      JsonObject jsonObject2 = gson2.fromJson(saveResponse2.toString(), JsonObject.class);
+      scanner2.close();      
            
           
-//        double co = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("co").getAsDouble();
-//        double no = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("no").getAsDouble();
-//        double no2 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().get("components").getAsJsonObject().get("no2").getAsDouble();
-//        double o3 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().get("components").getAsJsonObject().get("o3").getAsDouble();
-//        double so2 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().get("components").getAsJsonObject().get("so2").getAsDouble();
+        double co = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("co").getAsDouble();
+        double no = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("no").getAsDouble();
+        double no2 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("no2").getAsDouble();
+        double o3 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("o3").getAsDouble();
+        double so2 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("so2").getAsDouble();
+        double pm2_5 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("pm2_5").getAsDouble();
+        double pm10 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("pm10").getAsDouble();
+        double nh3 = jsonObject2.getAsJsonArray("list").get(0).getAsJsonObject().getAsJsonObject("components").getAsJsonObject().get("nh3").getAsDouble();
 
           
 //          long co=jsonObject2.getAsJsonObject("components").get("co").getAsLong();
@@ -133,9 +135,14 @@ public class serverSide extends HttpServlet {
 //          long o3=jsonObject2.getAsJsonObject("components").get("o3").getAsLong();
 //          long so2=jsonObject2.getAsJsonObject("components").get("so2").getAsLong();
           
-//          request.setAttribute("co", co);
-//          request.setAttribute("no",no);
-        
+          request.setAttribute("co", co);
+          request.setAttribute("no",no);
+          request.setAttribute("no2",no2);
+          request.setAttribute("o3",o3);
+          request.setAttribute("so2",so2);
+          request.setAttribute("pm2_5",pm2_5);
+          request.setAttribute("pm10",pm10);
+          request.setAttribute("nh3",nh3);
         
           request.setAttribute("city", userInput);
           request.setAttribute("temperature", temperature_in_C);
@@ -152,7 +159,7 @@ public class serverSide extends HttpServlet {
 //          request.setAttribute("icon1", icon1); 
           
           request.setAttribute("weatherData", saveResponse.toString());
-//          request.setAttribute("weatherData1", saveResponse2.toString());
+          request.setAttribute("weatherData1", saveResponse2.toString());
           
           request.getRequestDispatcher("internal.jsp").forward(request, response);
            
