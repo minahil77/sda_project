@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -236,10 +235,10 @@ body {
 }
 
 .pollution{
-   width:800px;
+   width:850px;
    height:200px;
-   background-color: white;
-  border-radius: 25px; 
+   box-shadow: 0 0 50px -5px rgba(0, 0, 0);
+  border-radius: 10px; 
   margin:20px;
 }
 form  .btn1{
@@ -310,9 +309,12 @@ form  .btn1{
             
         </div>
         <div class="pollution">
-            <form id="airPollutionForm" action="airPollution.jsp" method="post">
-                <button type="submit">Air pollution</button>
-            </form>
+            <p>co:${co}</p>
+              <p>no:${no }</p>
+              <p>no2:${no2}</p>
+              <p>o3:${o3}</p>
+              <p>so2:${so2}</p>
+              
         </div>
          
     </div>
@@ -337,4 +339,8 @@ form  .btn1{
  
 
        
+
+
+ 
+
        
