@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -240,6 +241,11 @@ body {
    box-shadow: 0 0 50px -5px rgba(0, 0, 0);
   border-radius: 10px; 
   margin:20px;
+  padding:15px;
+}
+.pollution p{
+
+ margin-left:140px;;
 }
 form  .btn1{
     width:80px;
@@ -309,17 +315,19 @@ form  .btn1{
             
         </div>
         <div class="pollution">
-            <p>co:${co}</p>
-              <p>no:${no }</p>
-              <p>no2:${no2}</p>
-              <p>o3:${o3}</p>
-              <p>so2:${so2}</p>
-              
+           <h3>Air pollution</h3>
+            <p>&nbsp;&nbsp; co:${co}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no:${no } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  no2:${no2}</p>
+            <p>&nbsp;&nbsp; o3:${o3}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; so2:${so2} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pm2_5:${pm2_5 } </p>
+            <p>&nbsp;&nbsp; pm10:${pm10} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nh3:${nh3} </p>
+            <form id="airPollutionForm" action="airPollution.jsp" method="post" style="display: none;">
+                <button type="submit">Air pollution</button>
+            </form>
         </div>
          
     </div>
 
 </div>
+
 <script>
     document.getElementById("airPollutionForm").addEventListener("submit", function(event) {
         event.preventDefault();
@@ -333,14 +341,11 @@ form  .btn1{
     c1.innerHTML = '☀️'; 
     c2.innerHTML = '☁️'; 
     </script>
+    
 </body>
 </html>
 
  
 
        
-
-
- 
-
        
