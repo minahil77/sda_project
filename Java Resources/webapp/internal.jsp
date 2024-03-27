@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
+
+ 
+ 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -360,10 +365,21 @@ body {
             </div>
             
         </div>
-        
-     
+  
+          <form id="airPollutionForm" action="airPollution.jsp" method="post">
+    <button type="submit">Air pollution</button>
+</form>
     </div>
 
 </div>
+<script>
+    document.getElementById("airPollutionForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formAction = this.getAttribute("action");
+        window.location.href = formAction;
+    });
+    </script>
 </body>
 </html>
+
+ 
