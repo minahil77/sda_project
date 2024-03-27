@@ -1,7 +1,8 @@
-package sda_project;
+package PROJECT;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+
+
+import jakarta.servlet.ServletException; 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,18 +12,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.TimeZone;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+
 
 public class serverSide extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -48,8 +44,6 @@ public class serverSide extends HttpServlet {
            connection.setRequestMethod("GET");
         InputStream inputConnection = connection.getInputStream();
         InputStreamReader read_information = new InputStreamReader(inputConnection);
-        
-        
         Scanner scanner = new Scanner(read_information);
         StringBuilder saveResponse = new StringBuilder();
         
@@ -101,23 +95,7 @@ public class serverSide extends HttpServlet {
 
       
         
-        request.setAttribute("city", userInput);
-        request.setAttribute("temperature", temperature_in_C);
-        request.setAttribute("desp",currentWeather ); 
-        request.setAttribute("humidity", humidity);    
-        request.setAttribute("wind", wind);
-        request.setAttribute("longitude", longt);
-        request.setAttribute("latitude", latitude);
- // sunrise
-        request.setAttribute("sunrise", sunriseTime);
-        request.setAttribute("sunset", sunsetTime);
-        request.setAttribute("date1", date1); 
-        request.setAttribute("day", day); 
-//        request.setAttribute("icon1", icon1); 
-        
-        request.setAttribute("weatherData", saveResponse.toString());
-        request.getRequestDispatcher("internal.jsp").forward(request, response);
-        
+     
  //air pollution
         String air_url="http://api.openweathermap.org/data/2.5/air_pollution?lat="+latitude+"&lon="+longt+"&appid="+key;
         URL airApi=new URL (air_url);
@@ -136,7 +114,7 @@ public class serverSide extends HttpServlet {
         }
         System.out.println(saveResponse2);
         Gson gson2 = new Gson();
-        JsonObject jsonObject2 = gson.fromJson(saveResponse2.toString(), JsonObject.class);
+        JsonObject jsonObject2 = gson2.fromJson(saveResponse2.toString(), JsonObject.class);
         scanner2.close();
         
            
@@ -174,7 +152,7 @@ public class serverSide extends HttpServlet {
           request.setAttribute("weatherData1", saveResponse2.toString());
           
           request.getRequestDispatcher("internal.jsp").forward(request, response);
-          request.setAttribute("weatherData1", saveResponse2.toString());
+           
           
         //5 days 3 hours interval forecast
 //        String for_url="api.openweathermap.org/data/2.5/forecast?q="+userInput+"&appid="+key;
