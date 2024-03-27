@@ -239,6 +239,8 @@ body {
    width:850px;
    height:200px;
    box-shadow: 0 0 50px -5px rgba(0, 0, 0);
+   background-color:white;
+   color:black;
   border-radius: 10px; 
   margin:20px;
   padding:15px;
